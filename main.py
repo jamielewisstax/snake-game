@@ -15,6 +15,12 @@ snake = Snake()
 scoreboard = Scoreboard()
 food = Food()
 
+for countdown in reversed(range(1, 4)):
+    scoreboard.goto(0,50)
+    scoreboard.write(arg=f"Game starts in: {countdown}...", align="center", font=("Courier", 16, "normal"))
+    time.sleep(1)
+    scoreboard.clear()
+
 screen.listen()
 screen.onkey(snake.up, "Up")
 screen.onkey(snake.down, "Down")
@@ -24,7 +30,7 @@ screen.onkey(snake.right, "Right")
 game_is_on = True
 while game_is_on:
     screen.update()
-    time.sleep(0.06)
+    time.sleep(0.1)
     snake.move()
 
     # Detect collision with food
